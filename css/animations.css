@@ -1,0 +1,291 @@
+.firstHalfFlip {
+	animation-duration: .3s;
+	animation-fill-mode: forwards;
+	animation-name: firstHalfFlip;
+}
+
+@keyframes firstHalfFlip {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(90deg);
+	}
+}
+
+.secondHalfFlip {
+	animation-duration: .3s;
+	animation-fill-mode: forwards;
+	animation-name: secondHalfFlip;
+
+}
+
+@keyframes secondHalfFlip {
+	from {
+		transform: rotateY(-90deg);
+	}
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+.matched {
+	animation-duration: .7s;
+	animation-name: matchedPair;
+}
+
+@keyframes matchedPair {
+	40% {
+		width: 25%;
+		height: 17%;
+		margin: 4% 0%;
+		line-height: calc(16.8vw * .8095);
+	}
+
+	60% {
+		width: 17%;
+		height: 25%;
+		margin: 0% 4%;
+		line-height: calc(16.8vw * 1.1904);
+	}
+	
+	75% {
+		width: 23%;
+		height: 19%;
+		margin: 3% 1%;
+		line-height: calc(16.8vw * .9047);
+	}
+	
+	90% {
+		width: 19%;
+		height: 23%;
+		margin: 1% 3%;
+		line-height: calc(16.8vw * 1.0952);
+	}
+
+	100% {
+		width: 21%;
+		height: 21%;
+		margin: 2%;
+		line-height: 16.8vw;
+	}
+}
+
+.incorrect {
+	background-color: red;
+	animation-duration: .7s;
+	animation-name: wrong;
+}
+
+@keyframes wrong {
+	20% {
+		transform: translateX(-5px) rotate(-3deg);
+	}
+
+	40% {
+		transform: translateX(4px) rotate(3deg);
+	}
+	
+	60% {
+		transform: translateX(-3px) rotate(-2deg);
+	}
+	
+	80% {
+		transform: translateX(2px) rotate(2deg);
+	}
+
+	100% {
+		transform: translateX(0px) rotate(0deg);
+	}
+}
+
+.modalContent {
+	animation-duration: 1s;
+	animation-name: pulse;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(.5);
+	}
+
+	40% {
+		transform: scale(1.1);
+	}
+
+	60% {
+		transform: scale(.95);
+	}
+	
+	80% {
+		transform: scale(1.02);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+/**
+ * "Success Check Animation Pure CSS"
+ * A PEN By Istiak Tridip
+ * https://codepen.io/istiaktridip/pen/BZqaOd
+ * Extracted from: SweetAlert
+ * Modified by: Istiak Tridip
+ * Modified further (SCSS -> CSS, qQuery -> CSS/Javascript), customized
+ */
+.successCheckmark {
+    width: 80px;
+    height: 80px;
+    margin: 30% auto 0px;
+}
+
+.checkIcon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4CAF50;
+    display: inherit;
+ }
+
+.checkIcon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+}
+
+.checkIcon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+}
+
+.checkIcon::before, .checkIcon::after {
+    content: '';
+    height: 100px;
+    position: absolute;
+    background: #FFFFFF;
+    transform: rotate(-45deg);
+}
+
+.iconLine {
+    height: 5px;
+    background-color: #4CAF50;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+    
+.lineTip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+}
+
+.lineLong {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+}
+
+    
+.iconCircle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, .5);
+}
+
+.iconFix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: #FFFFFF;
+}
+
+
+@keyframes rotate-circle {
+    0% {
+        transform: rotate(-45deg);
+    }
+    5% {
+        transform: rotate(-45deg);
+    }
+    12% {
+        transform: rotate(-405deg);
+    }
+    100% {
+        transform: rotate(-405deg);
+    }
+}
+
+@keyframes icon-line-tip {
+    0% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    54% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    70% {
+        width: 50px;
+        left: -8px;
+        top: 37px;
+    }
+    84% {
+        width: 17px;
+        left: 21px;
+        top: 48px;
+    }
+    100% {
+        width: 25px;
+        left: 14px;
+        top: 45px;
+    }
+}
+
+@keyframes icon-line-long {
+    0% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    65% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    84% {
+        width: 55px;
+        right: 0px;
+        top: 35px;
+    }
+    100% {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+    }
+}

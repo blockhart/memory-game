@@ -1,0 +1,115 @@
+body {
+	margin: auto;
+	text-align: center;
+	min-width: 360px;
+	max-width: 1024px;
+}
+
+h1 {color:teal;}
+
+p {
+	margin: 0;
+}
+
+button {
+	border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #07889B;
+}
+
+.boardSizer {
+	position: relative;
+	width: 80%;
+	margin: auto;
+	background-color: #07889B;
+	display: block;
+	padding-top: 80%;
+	-webkit-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+}
+
+.cardPositioning {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 2%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: white;
+}
+
+.modalContent {
+	color: black;
+	background-color: white;
+	margin: auto;
+	padding: 20px;
+	width: 70%;
+	display: inherit;
+}
+
+.modalShow {
+	display: none;
+}
+
+.card {
+	width: 21%;
+	height: 21%;
+	margin: 2%;
+	border-radius: 20%;
+	color: white;
+	/*Sets the line-height to the approximate height of each card, 
+	which will vertically center the font-awesome icons.*/
+	line-height: 16.8vw;
+	font-size: 5vw;
+}
+
+.back {
+	background-color: blue;
+}
+
+.front {
+	background-color: #E37222;
+	transform: rotateY(-90deg);
+}
+
+.paired {
+	background-color: #E37222;
+}
+
+.dashboardItem {
+	width: 25%;
+}
+
+#dashboard {
+	width: 80%;
+	margin: 0px 10% 20px;
+	display: inline-flex;
+	flex-wrap: wrap;
+	line-height: 150%;
+}
+
+#bestMessage {
+	margin: 1em;
+}
+
+.pointyCursor {
+	cursor: pointer;
+}
