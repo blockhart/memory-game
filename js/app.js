@@ -18,7 +18,8 @@ let starRating = 3;
 	
 let passedCards = [],
 	orderOfCards = [];
-let moveDisplay = document.querySelector('#moves'),
+let board = document.querySelector('.cardPositioning'),
+	moveDisplay = document.querySelector('#moves'),
 	timeDisplay = document.querySelector('#timeDisplay'),
 	firstStar = document.querySelector("#star1"),
 	secondStar = document.querySelector("#star2"), 
@@ -53,6 +54,7 @@ function resetGame() {
 	startTimer();
 };
 
+// Setup main event listeners
 function establishListeners() {
 	//Setup resetBtn and playAgainBtn
 	resetBtn.addEventListener("click", function() {
@@ -86,6 +88,7 @@ function establishListeners() {
 	});
 };
 
+//randomize order of cards
 function randomizeCards() {
 	// set initial number of open positions
 	let openPositionsLeft = 16;
@@ -113,6 +116,7 @@ function randomizeCards() {
 	};
 };
 
+// initialize all variables and timers/displays
 function initializeVariables() {
 	pairsFound = 0;
 	firstClick =0;
@@ -130,26 +134,29 @@ function initializeVariables() {
 	seconds = 0;
 };
 
+// create cards, assign type and attributes in order
 function assignCardsToBoard() {
-	var allCards = document.getElementsByClassName("card");
+	board.innerHTML = "";
 	for (i =0; i<16; i++) {
-		allCards[i].setAttribute("iText", "<i class=\"fas fa-" + orderOfCards[i] + "\"></i>");
-		allCards[i].setAttribute("cardType", orderOfCards[i]);
-		allCards[i].innerHTML="";
-		allCards[i].classList.remove("front","paired","matched");
-		allCards[i].classList.add("back");
-		allCards[i].setAttribute("status","closed");
+		var preCard = document.createElement("div");
+		var card = board.appendChild(preCard);
+		card.classList.add("card","back")
+		card.setAttribute("iText", "<i class=\"fas fa-" + orderOfCards[i] + "\"></i>");
+		card.setAttribute("cardType", orderOfCards[i]);
+		card.setAttribute("status","closed");
 	}
 };
 
+// setup that timer starts on first click on board
 function startTimer() {
-		timeDisplay.innerText = seconds;
+	timeDisplay.innerText = seconds;
 	document.querySelector(".boardSizer").addEventListener("click", function(evt) {
 		timer = setInterval(function(){seconds++;},1000);
 		displayTimer = setInterval(function(){timeDisplay.innerText = seconds;},1000);
 	}, {once:true});
 };
 
+// function will flip cards from back ("closed") to front, or vice versa, triggers animations
 function flipCard(passedCards) {
 	listenState = "Off";
 	for (const passedCard of passedCards) {
@@ -177,6 +184,7 @@ function flipCard(passedCards) {
 	listenState = "On";
 };
 
+// compare and evaluate two cards for a match or incorrect guess
 function compareCards(card1,card2) {
 	listenState = "Off";
 	//If two cards are same
@@ -200,6 +208,7 @@ function compareCards(card1,card2) {
 	};
 };
 
+// evaluate and adjust Stars shown
 function changeMovesStars() {
 	//Change move count
 	moveCount++;
@@ -216,6 +225,7 @@ function changeMovesStars() {
 	listenState = "On";
 };
 
+// what to do when someone wins
 function win() {
 	// Stop timers
 	clearInterval(timer);
