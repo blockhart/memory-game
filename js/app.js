@@ -39,6 +39,7 @@ let filledStar = '<i class="fas fa-star"></i>',
 let listenState="On";
 
 document.addEventListener("DOMContentLoaded", function() {
+	"use strict";
 	start();
 },false)
 
@@ -249,5 +250,4 @@ function win() {
 	}
 	// Show modal information
 	winModal.classList.toggle("modalShow");
-
-}
+};
