@@ -204,16 +204,13 @@ function changeMovesStars() {
 	moveCount++;
 	moveDisplay.innerHTML = moveCount;
 	//Alter Stars displayed
-	if (moveCount == 14) {
+	if (moveCount == 15) {
 		thirdStar.innerHTML = hollowStar;
 		starRating = 2;
-	} else if (moveCount == 18) {
+	} else if (moveCount == 21) {
 		secondStar.innerHTML = hollowStar;
 		starRating = 1;
-	} else if (moveCount == 22) {
-		firstStar.innerHTML = hollowStar;
-		starRating = 0;
-	}
+	};
 	//turn listening state back on
 	listenState = "On";
 };
