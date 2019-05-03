@@ -127,7 +127,7 @@ function initializeVariables() {
 		clearInterval(displayTimer);
 		winBestMessage.textContent = "";
 	}
-
+	seconds = 0;
 };
 
 function assignCardsToBoard() {
@@ -143,10 +143,11 @@ function assignCardsToBoard() {
 };
 
 function startTimer() {
-	seconds = 0;
-	timeDisplay.innerText = seconds;
-	timer = setInterval(function(){seconds++;},1000);
-	displayTimer = setInterval(function(){timeDisplay.innerText = seconds;},1000);
+		timeDisplay.innerText = seconds;
+	document.querySelector(".boardSizer").addEventListener("click", function(evt) {
+		timer = setInterval(function(){seconds++;},1000);
+		displayTimer = setInterval(function(){timeDisplay.innerText = seconds;},1000);
+	}, {once:true});
 };
 
 function flipCard(passedCards) {
